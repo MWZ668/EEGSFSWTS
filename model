@@ -14,7 +14,7 @@ class GELU(nn.Module):
         return 0.5 * x * (1 + torch.tanh(np.sqrt(2 / np.pi) * (x + 0.044715 * torch.pow(x, 3))))
 
 class ScaledDotProductAttention(nn.Module):
-    ''' Scaled Dot-Product Attention '''
+   
 
     def __init__(self, temperature, attn_dropout=0.1):
         super().__init__()
@@ -73,7 +73,7 @@ class MultiHeadAttention(nn.Module):
         return q, attn
 
 class PositionwiseFeedForward(nn.Module):
-    ''' A two-feed-forward-layer module '''
+    
 
     def __init__(self, d_in, d_hid, dropout=0.1):  # d_in=d_model=310, d_inner=d_ff= args.ffn_hidden=512
         super().__init__()
@@ -113,8 +113,7 @@ class PositionalEncoding(nn.Module):
         self.register_buffer('pos_table', self._get_sinusoid_encoding_table(n_position, d_hid))
 
     def _get_sinusoid_encoding_table(self, n_position, d_hid):
-        ''' Sinusoid position encoding table '''
-        # TODO: make it with torch instead of numpy
+       
 
         def get_position_angle_vec(position):
             return [position / np.power(10000, 2 * (hid_j // 2) / d_hid) for hid_j in range(d_hid)]
@@ -129,7 +128,7 @@ class PositionalEncoding(nn.Module):
         return x + self.pos_table[:, :x.size(1)].clone().detach()
 
 class Encoder(nn.Module):
-    ''' A encoder model with self attention mechanism. '''
+   
 
     def __init__(self, d_word_vec, n_layers, n_head, d_k, d_v,
                  d_model, d_inner, dropout=0.1, n_position=200):
