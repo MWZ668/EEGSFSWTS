@@ -5,7 +5,6 @@ import torch.nn.functional as F
 
 from transformer_classification import SFSWTS_Swin
 
-
 class GELU(nn.Module):
     def __init__(self):
         super(GELU, self).__init__()
