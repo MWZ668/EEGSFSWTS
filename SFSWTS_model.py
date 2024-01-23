@@ -13,7 +13,7 @@ class GELU(nn.Module):
         return 0.5 * x * (1 + torch.tanh(np.sqrt(2 / np.pi) * (x + 0.044715 * torch.pow(x, 3))))
 
 class ScaledDotProductAttention(nn.Module):
-   
+
 
     def __init__(self, temperature, attn_dropout=0.1):
         super().__init__()
